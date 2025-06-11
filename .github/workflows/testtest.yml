@@ -8,4 +8,5 @@ jobs:
     name: testtest
     runs-on: ubuntu-latest
     steps:
-      -runs: echo "testtest !!"
+      name: "手動実行"
+      run: echo "testtest!!"
