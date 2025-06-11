@@ -1,0 +1,11 @@
+name: "testtest"
+
+on: [pullrequest]
+
+jobs:
+  sample:
+    name: testtest
+    runs-on: ubuntu-latest
+    steps:
+      -runs: echo "testtest !!"
+      
