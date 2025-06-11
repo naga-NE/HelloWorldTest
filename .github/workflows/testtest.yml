@@ -1,6 +1,6 @@
 name: "testtest"
 
-on: [pullrequest]
+on: [push]
 
 jobs:
   sample:
@@ -8,4 +8,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -runs: echo "testtest !!"
-      
