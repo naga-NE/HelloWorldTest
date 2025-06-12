@@ -27,10 +27,9 @@ jobs:
       - name: Git Config
         run: |
           git config --local user.name "nagayamat"
-          git config --local user.email "tomoya.nagayama@daikin.co.jp"
+          git config --local user.email "tomo.game10@gmail.com"
       - name: Get Branch Name
-        run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
-        id: extract_branch
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
       - name: Commit Files
         env:
           BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
