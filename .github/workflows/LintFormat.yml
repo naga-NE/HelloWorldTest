@@ -9,39 +9,28 @@ jobs:
   steps:
     -name: CheckOut
     uses: actions/checkout@v3
-
     -name: Install packages
     run: npm ci
-
     -name: ESLint rules
     run: npm init -y; npm i -D eslint @cybozu/eslint-config
-
     -name: Prettier
     run: npm run format
-
     -name: Lint
     run: npm run lint
-
-
-
   GitCommit:
   name: Add-to-Push
   needs: Auto-Linter
   runs-on: ubuntu-latest
-
   steps:
     -name: CheckOut
     uses: actions/checkout@v3
-
     -name: Git Config
     run: |
       git config --local user.name "nagayamat"
       git config --local user.email "tomoya.nagayama@daikin.co.jp"
-
     -name: Get Branch Name
     run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
     id: extract_branch
-
     -name: Commit Files
     env:
       BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
