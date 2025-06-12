@@ -18,7 +18,7 @@ jobs:
 
 
   GitCommit:
-  name: Add-to-Push
+  name: AddtoPush
   needs: Auto-Linter
   runs-on: ubuntu-latest
   steps:
