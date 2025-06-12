@@ -1,12 +1,12 @@
-name: "Test"
+# name: "Test"
 
-on: 
-  workflow_dispatch
+# on: 
+#   workflow_dispatch
 
-jobs:
-  sample:
-    name: testtest
-    runs-on: ubuntu-latest
-    steps:
-      name: "手動実行"
-      run: echo "testtest!!"
+# jobs:
+#   sample:
+#     name: testtest
+#     runs-on: ubuntu-latest
+#     steps:
+#       name: "手動実行"
+#       run: echo "testtest!!"

@@ -1,18 +1,18 @@
-name: "Hellow World"
+# name: "Hellow World"
 
-on: [pull_request]
+# on: [pull_request]
 
-jobs:
-  sample:
-    name: Hello World Job
-    runs-on: ubuntu-latest
-    steps:
-      name: display
-      run: echo "Hello World !!!!"
+# jobs:
+#   sample:
+#     name: Hello World Job
+#     runs-on: ubuntu-latest
+#     steps:
+#       name: display
+#       run: echo "Hello World !!!!"
       
-      name: hobby
-      run: echo "my hobby is tennis!!"
+#       name: hobby
+#       run: echo "my hobby is tennis!!"
     
-    steps:
-      name: aaa
-      run: echo "hello"
+#     steps:
+#       name: aaa
+#       run: echo "hello"
