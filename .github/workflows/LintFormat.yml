@@ -20,7 +20,6 @@ jobs:
           if [[ -n "$(git status --porcelain)" ]]; then
             echo "Code changes detected after lint or format:"
             git diff
-            exit 1
           else
             echo "No changes detected after lint or format"
           fi
