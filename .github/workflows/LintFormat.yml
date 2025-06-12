@@ -4,41 +4,41 @@ on:
 
 jobs:
   Auto-Linter:
-    name: Auto-Linter
-    runs-on: ubuntu-latest  #普通に仮想環境で実行？
-    steps:
-      -name: CheckOut
-      uses: actions/checkout@v3
-      -name: Install packages
-      run: npm ci
-      -name: Prettier
-      run: npm run format
-      -name: Lint
-      run: npm run lint
+  name: Auto-Linter
+  runs-on: ubuntu-latest  #普通に仮想環境で実行？
+  steps:
+    -name: CheckOut
+    uses: actions/checkout@v3
+    -name: Install packages
+    run: npm ci
+    -name: Prettier
+    run: npm run format
+    -name: Lint
+    run: npm run lint
 
 
   GitCommit:
-    name: Auto-Linter
-    needs: Auto-Linter
-    runs-on: ubuntu-latest
-    steps:
-      -name: CheckOut
-      uses: actions/checkout@v3
-      -name: Git Config
-      run: |
-        git config --local user.name "nagayamat"
-        git config --local user.email "tomoya.nagayama@daikin.co.jp"
-      -name: Get Branch Name
-      run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
-      id: extract_branch
-      -name: Commit Files
-      env:
-        BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
-      run: |      #mergeログが残らない
-        git pull --rebase 
-        git add .
-        git commit -m "Commited by Actions"
-        git push origin BRANCH_NAME
+  name: Auto-Linter
+  needs: Auto-Linter
+  runs-on: ubuntu-latest
+  steps:
+    -name: CheckOut
+    uses: actions/checkout@v3
+    -name: Git Config
+    run: |
+      git config --local user.name "nagayamat"
+      git config --local user.email "tomoya.nagayama@daikin.co.jp"
+    -name: Get Branch Name
+    run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+    id: extract_branch
+    -name: Commit Files
+    env:
+      BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
+    run: |      #mergeログが残らない
+      git pull --rebase 
+      git add .
+      git commit -m "Commited by Actions"
+      git push origin BRANCH_NAME
 
 
 
