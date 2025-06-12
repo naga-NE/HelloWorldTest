@@ -11,8 +11,6 @@ jobs:
     uses: actions/checkout@v3
     -name: Install packages
     run: npm ci
-    -name: ESLint rules
-    run: npm init -y; npm i -D eslint @cybozu/eslint-config
     -name: Prettier
     run: npm run format
     -name: Lint
