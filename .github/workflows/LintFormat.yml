@@ -18,7 +18,7 @@ jobs:
 
 
   GitCommit:
-    name: Auto-Linter
+    name: GitCommit
     needs: Auto-Linter
     runs-on: ubuntu-latest
     steps:
@@ -35,10 +35,14 @@ jobs:
         env:
           BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
         run: |      #mergeログが残らない
-          git pull --rebase 
-          git add .
-          git commit -m "Commited by Actions"
-          git push origin $BRANCH_NAME
+          git pull --rebase
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add .
+            git commit -m "Commited by Actions"
+            git push origin $BRANCH_NAME
+          else
+            echo "No changes to commit"
+          fi
 
 
 
