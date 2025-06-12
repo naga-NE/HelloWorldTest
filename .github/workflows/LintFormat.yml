@@ -17,6 +17,8 @@ jobs:
     run: npm run format
     -name: Lint
     run: npm run lint
+
+
   GitCommit:
   name: Add-to-Push
   needs: Auto-Linter
