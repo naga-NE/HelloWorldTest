@@ -38,7 +38,7 @@ jobs:
           git pull --rebase 
           git add .
           git commit -m "Commited by Actions"
-          git push origin BRANCH_NAME
+          git push origin $BRANCH_NAME
 
 
 
